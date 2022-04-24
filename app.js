@@ -13,6 +13,7 @@ app.listen(port, () => {
 })
 
 // HTTP METHODS
+// GET
 app.get('/v1/explorers', (req, res) => {
     console.log(`API explorers GET ALL requests ${new Date()}`)
     const explorer1 = { id: 1, name: "Marcos1"}
@@ -29,4 +30,11 @@ app.get('/v1/explorers/:id', (req, res) => {
 
     const explorer = { id: 1, name: "Marcos" }
     res.status(200).json(explorer)
+})
+
+// POST
+app.post('/v1/explorers', (req, res) => {
+    console.log(`API explorers POST request ${new Date()}`)
+    const requestBody = req.body // Parámetros de un cliente
+    res.status(201).json({message: "Created"})
 })
